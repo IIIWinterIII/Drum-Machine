@@ -1,0 +1,226 @@
+$font-size: 1.5em;
+.selector-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-family: monospace;
+}
+
+#drum-machine {
+  max-width: 100%;
+  width: 35em;
+  height: 20em;
+  background-color: rgba(0, 255, 255, 0.451);
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  margin: 15px;
+  position: relative;
+  border: 2px solid rgb(255, 255, 255);
+  user-select: none;
+}
+
+.pad-bank {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  height: 100%;
+  // background-color: rgba(255, 240, 240, 0.74);
+  border: 2px solid rgb(255, 255, 255);
+  border-right: none;
+}
+
+.seting-table {
+  display: flex;
+  order: 2;
+  // justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+  // background-color: #171eec;
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.drum-pad {
+  flex: 1 0 calc(20.33% - 10px);
+  margin: 15px;
+  background-color: #ccc;
+  border-radius: 10%;
+  box-shadow: 4px 4px 5px rgb(0, 0, 0);
+  border: 2px solid rgba(1, 1, 1, 0.733);
+  font-size: $font-size;
+  @extend .selector-items
+}
+
+.drum-pad-active, .drum-pad:active {
+  transform: scale(0.95); /* Уменьшение размера кнопки */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Тень */
+  background-color: orange;
+}
+
+.drum-pad:hover {
+  cursor: pointer;
+}
+// Дисплей отображения проигрываемого звука
+#display {
+  width: 70%;
+  height: 13%;
+  background-color: rgba(34, 110, 232, 0.588);
+  border: 2px solid rgb(255, 255, 255);
+  font-size: 1.4em;
+  @extend .selector-items
+}
+// Блок с дисплеем и ползунка громкости
+.display-and-volume-set {
+  width: 70%;
+  height: 23%;
+  @extend .selector-items;
+  flex-direction: column;
+  border: 2px solid rgb(255, 255, 255);
+  font-size: $font-size;
+}
+// Блок с дисплеем громкости
+.volume-display {
+  width: 70%;
+  height: 43%;
+  margin-bottom: 5px;
+  background-color: rgba(34, 110, 232, 0.588);
+  border: 2px solid rgb(255, 255, 255);
+  @extend .selector-items;
+
+}
+// Переключатель включения
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #171eec;
+  transition: 0.4s;
+  border-radius: 15px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 24px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #ccc;
+}
+
+input:checked + .slider:before {
+  left: -16px;
+  transform: translateX(20px);
+  
+}
+// Иконка звука
+.volume-set {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid white;
+  padding: 10px;
+  i {
+    margin-bottom: 10px;
+    font-size: $font-size;
+  }
+}
+// Автор проекта
+.author {
+  font-family: Trattatello, fantasy;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  .fa-snowflake {
+    margin-left: 5px;
+    font-weight: 100;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #drum-machine {
+    width: 20em;
+    height: 30em;
+    flex-direction: column;
+    padding: 25px;
+  }
+
+  .pad-bank {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(255, 255, 255);
+    border-bottom: none;
+  }
+
+  .drum-pad {
+    flex: 1 0 calc(24.33% - 10px);
+    margin: 7px;
+    box-shadow: 3px 3px 5px rgb(0, 0, 0);
+  }
+
+  .seting-table {
+    width: 100%;
+    height: 30em;
+  }
+
+  .volume-set {
+    padding: 7px;
+
+    i {
+      margin-bottom: 7px;
+      font-size: 1.3em;
+    }
+  }
+
+  #display {
+    width: 50%;
+    height: 15%;
+    align-items: center;
+    font-size: 1.5em;
+  }
+
+  .display-and-volume-set {
+    width: 50%;
+    height: 35%;
+  }
+
+  .volume-display {
+    width: 36%;
+    height: 33%;
+    font-size: 1.1em;
+  }
+
+  .author {
+    font-size: 0.8em;
+    top: 5px;
+    right: 4px;
+  }
+}
