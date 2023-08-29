@@ -67,7 +67,7 @@ function App() {
         <div className="volume-set">
           <i
             className={`fas ${
-              volumeIcons && volume > 1 ? "fa-volume-up" : "fa-volume-mute"
+              volumeIcons && volume > 0 ? "fa-volume-up" : "fa-volume-mute"
             }`}
           ></i>
           <label className="switch">
